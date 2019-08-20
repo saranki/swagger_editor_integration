@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+    <link rel="stylesheet" href="dist/swagger-editor.css" />
+    <link rel="stylesheet" href="dist/custom/swagger-editor-custom.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="dist/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="dist/favicon-16x16.png"
+      sizes="16x16"
+    />
+
+    <script src="./dist/swagger-editor-bundle.js"></script>
+    <script src="./dist/swagger-editor-standalone-preset.js"></script>
+    <script src="fileSaver.js"></script>
+  </head>
+  <body onload="loadSwaggerEditor()">
+    <h2>HTML Forms</h2>
+
+    <div class="container">
+      <input
+        type="file"
+        id="fileForUpload"
+        onchange="loadFileContentToSwagger()"
+      />
+      <p id="contents"></p>
+    </div>
+
+    <div id="swagger-editor"></div>
+
+    <script>
+      function loadFileContentToSwagger() {
+        var file = document.getElementById("fileForUpload").files[0];
+        if (file) {
+          var reader = new FileReader();
+          reader.readAsText(file, "UTF-8");
+          reader.onload = function(evt) {
+            document.getElementById("contents").innerHTML = evt.target.result;
+            editor.specActions.updateSpec(evt.target.result);
+          };
+          reader.onerror = function(evt) {
+            document.getElementById("contents").innerHTML =
+              "error reading file";
+          };
+        }
+      }
+
+      function loadSwaggerEditor() {
+        //url: "http://httpbin.org/status/200",
+        const editor = SwaggerEditorBundle({
+          dom_id: "#swagger-editor",
+          layout: "StandaloneLayout",
+          presets: [SwaggerEditorStandalonePreset]
+        });
+        editor.specActions.updateSpec(" ");
+        const content = window.localStorage.getItem("swagger-editor-content");
+        window.editor = editor;
+      }
+    </script>
+  </body>
+</html>
