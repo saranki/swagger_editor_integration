@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/bootstrap.css" />
     <link rel="stylesheet" href="../dist/swagger-editor.css" />
     <link rel="stylesheet" href="../dist/custom/swagger-editor-custom.css" />
     <link rel="icon" type="image/png" href="../dist/favicon-32x32.png" sizes="32x32"/>
@@ -9,26 +10,40 @@
 
   </head>
   <body onload="loadSwaggerEditor()">
-    <h2>SWAGGER EDITOR INTEGRATION - ADDING A NEW SWAGGER FILE</h2>
+  <br/>
+    <nav>
+      <h3>SWAGGER EDITOR INTEGRATION - ADDING A NEW SWAGGER FILE</h3>
+    </nav>
 
-    <div class="container">
-      <div>
-        Name: <input type="text" name="name" id="name" /><br />
-        Version: <input type="text" name="version" id="version" /><br />
+  <div class="jumbotron">
+      <form>
 
-        <div>
-          <select id="swaggerVersion" onchange="getSelectedSwaggerVersion()">
+
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control-plaintext" name="name" id="name" placeholder="Enter file name"/>
+          </div>
+
+          <div class="form-group">
+            <label>Version</label>
+            <input type="text" class="form-control-plaintext" name="version" id="version" placeholder="Enter file version"/>
+          </div>
+
+        <div class="form-group">
+          <label>Swagger version</label>
+          <select id="swaggerVersion" class="form-control" onchange="getSelectedSwaggerVersion()">
             <option value="2.0">Swagger 2.0</option>
             <option value="3.0.0">OpenAPI 3.0.0</option>
           </select>
         </div>
-        <button id="addSubmit" name="submit" onclick="createSwaggerFile()">ADD</button>
-        <button id="addReset" name="reset" >RESET</button>
-      </div>
-      <div></div>
+          <br/>
+            <button id="addSubmit" class="btn btn-success" name="submit" onclick="createSwaggerFile()">ADD</button>&nbsp;&nbsp;&nbsp;
+            <button id="addReset" class="btn btn-info" name="reset" >RESET</button>
+
+      </form>
+  </div>
 
       <div id="swagger-editor"></div>
-    </div>
 
     <script src="../dist/swagger-editor-bundle.js"></script>
     <script src="../dist/swagger-editor-standalone-preset.js"></script>

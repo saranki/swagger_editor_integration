@@ -2,6 +2,7 @@
 <html>
   <head>
       <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/bootstrap.css" />
     <link rel="stylesheet" href="../dist/swagger-editor.css" />
     <link rel="stylesheet" href="../dist/custom/swagger-editor-custom.css" />
     <link rel="icon" type="image/png" href="../dist/favicon-32x32.png" sizes="32x32"/>
@@ -10,12 +11,24 @@
 
   </head>
   <body onload="loadSwaggerEditor()">
-    <h2>SWAGGER EDITOR INTEGRATION - UPDATING A SWAGGER FILE</h2>
+  <br/>
+  <nav>
+    <h3>SWAGGER EDITOR INTEGRATION - UPDATING A SWAGGER FILE</h3>
+  </nav>
 
-    <div class="container">
-      Select a swagger file: <input type="file" id="fileForUpload" onchange="loadFileContentToSwaggerEditor()"/><br/>
-      <button name="submit" onclick="updateSwaggerFile()">UPDATE</button>
-      <button id="updateReset" name="reset" >RESET</button>
+
+    <div class="jumbotron">
+      <form>
+          <div class="form-group">
+            <label>Select a swagger file   </label>
+            <input type="file" id="fileForUpload" onchange="loadFileContentToSwaggerEditor()"/><br/>
+          </div>
+
+        <button name="submit" class="btn btn-success" onclick="updateSwaggerFile()">UPDATE</button>&nbsp;&nbsp;&nbsp;
+        <button id="updateReset" class="btn btn-info" name="reset" >RESET</button>
+
+      </form>
+
     </div>
 
     <div id="swagger-editor"></div>
