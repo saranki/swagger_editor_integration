@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+    <link rel="stylesheet" href="../dist/swagger-editor.css" />
+    <link rel="stylesheet" href="../dist/custom/swagger-editor-custom.css" />
+    <link rel="icon" type="image/png" href="../dist/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="../dist/favicon-16x16.png" sizes="16x16"/>
+
+
+  </head>
+  <body onload="loadSwaggerEditor()">
+    <h2>SWAGGER EDITOR INTEGRATION - UPDATING A SWAGGER FILE</h2>
+
+    <div class="container">
+      Select a swagger file: <input type="file" id="fileForUpload" onchange="loadFileContentToSwaggerEditor()"/><br/>
+      <button name="submit" onclick="updateSwaggerFile()">UPDATE</button>
+      <button id="updateReset" name="reset" >RESET</button>
+    </div>
+
+    <div id="swagger-editor"></div>
+
+    <script src="../dist/swagger-editor-bundle.js"></script>
+    <script src="../dist/swagger-editor-standalone-preset.js"></script>
+    <script src="../js/swagger.js"></script>
+    <script src="../js/update.js"></script>
+    <script src="../js/fileSaver.js"></script>
+    <script src="../js/reset.js"></script>
+  </body>
+</html>

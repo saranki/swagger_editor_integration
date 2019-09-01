@@ -4,12 +4,11 @@
           var reader = new FileReader();
           reader.readAsText(file, "UTF-8");
           reader.onload = function(evt) {
-            document.getElementById("contents").innerHTML = evt.target.result;
             editor.specActions.updateSpec(evt.target.result);
           };
           reader.onerror = function(evt) {
-            document.getElementById("contents").innerHTML =
-              "error reading file";
+            alert("error reading file");
+
           };
         }
       }
@@ -23,3 +22,8 @@
           });
           saveAs(blob, fileName);
         }
+
+    document.getElementById('updateReset').onclick = function(){
+         resetSwaggerEditor();
+         resetFileChooser();
+     }

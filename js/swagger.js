@@ -1,6 +1,6 @@
-// Load the swagger editor in the web page
 var editor, swaggerConfigs, ui;
 
+        // Load the swagger editor in the web page
         function loadSwaggerEditor() {
            editor = SwaggerEditorBundle({
             dom_id: "#swagger-editor",
@@ -11,6 +11,7 @@ var editor, swaggerConfigs, ui;
           editor.specActions.updateSpec(' ');
         }
 
+        // Load the swagger ui in the web page
         function loadSwaggerUI() {
              swaggerConfigs = ({
               dom_id: '#swagger-ui',

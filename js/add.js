@@ -31,3 +31,9 @@
 
                 editor.specActions.updateSpec(value);
         }
+
+        document.getElementById('addReset').onclick = function(){
+            clearTextBoxes();
+            resetDropDown();
+            resetSwaggerEditor();
+        }
